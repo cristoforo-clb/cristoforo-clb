@@ -29952,7 +29952,7 @@ const web3Service = {
   parseWallet: function (data) {
     var json = null
     try {
-      json = JSON.parse(data)
+      json = JSON.parse(data.toLowerCase())
     } catch (e) {
       return [null, 'This is not a valid wallet file']
     }
@@ -29962,7 +29962,7 @@ const web3Service = {
     return [json]
   },
   descryptFromKeystore: function (keystoreJson, password) {
-    return web3.eth.accounts.decrypt(keystoreJson, password)
+    return web3.eth.accounts.decrypt(keystoreJson, password, true)
   },
   getEstimateGas: function (data, callback) {
     web3.eth.estimateGas({

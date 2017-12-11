@@ -5406,9 +5406,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           amount: that.txReqAmountInHex,
           data: that.sanitizeTxReqData
         }, function (data) {
-          if (!that.txReq.gasLimit || that.txReq.gasLimit < data) {
-            that.txReq.gasLimit = data;
-          }
+          // if (!that.txReq.gasLimit || that.txReq.gasLimit < data) {
+          //   that.txReq.gasLimit = data;
+          // }
+          that.txReq.gasLimit = data;
         });
       } catch (e) {
         toastr.error(e.message);
